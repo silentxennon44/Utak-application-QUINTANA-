@@ -1,0 +1,17 @@
+@import './variables.scss';
+
+
+@function get-next-breakpoint($current-breakpoint) {
+  $breakpoint-names: map-keys($grid-breakpoints);
+
+  $index: index($breakpoint-names, $current-breakpoint);
+  $next-index: $index + 1;
+
+  // Check if the next breakpoint exists
+  @if $next-index <= length($breakpoint-names) {
+    @return map-get($grid-breakpoints, nth($breakpoint-names, $next-index));
+  } @else {
+    @warn "No next breakpoint found for #{$current-breakpoint}.";
+    @return null; // You can customize this part based on your needs
+  }
+}

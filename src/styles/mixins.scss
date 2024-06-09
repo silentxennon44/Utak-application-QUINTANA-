@@ -1,0 +1,62 @@
+@import './variables.scss';
+@import './functions.scss';
+
+@mixin flexRowCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+@mixin flexRowBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+@mixin flexRowEvenly {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+}
+
+@mixin flexColumnCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@mixin flexColumnBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+@mixin flexColumnEvenly {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+// media queries
+  /**
+   * Media breakpoint for size: $size
+   *
+   * @param {string} $size - The size of the breakpoint
+   */
+@mixin media-breakpoint-only($size : xs) {
+  @if get-next-breakpoint($size) {
+    @media screen and (min-width: map-get($grid-breakpoints, $size)) and (max-width: (get-next-breakpoint($size) - .02px)) {
+      @content;
+    }
+  } @else {
+    @media screen and  (min-width: map-get($grid-breakpoints, $size)) {
+      @content;
+    }
+  }
+}

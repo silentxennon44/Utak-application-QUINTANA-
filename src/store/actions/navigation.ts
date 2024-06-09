@@ -1,0 +1,3 @@
+export const SET_LOCATION = 'SET_LOCATION';
+export const SET_IS_NO_LOC = 'SET_IS_NO_LOC';
+export const SET_IS_PAGE_LOADING = 'SET_IS_PAGE_LOADING';
