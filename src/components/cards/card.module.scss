@@ -1,0 +1,69 @@
+@import '@/styles/mixins.scss';
+
+.cards{
+  @include flexColumnCenter;
+  width: 200px;
+  height: 250px;
+  outline: 1px solid black;
+  position: relative;
+  transition: scale ease-in-out 0.25s,box-shadow ease-in-out 0.25s;
+  background-color: white;
+  z-index: 2;
+
+  .image {
+    height: 150px;
+    width: 200px;
+    background-color: white;
+  }
+
+  .name {
+    text-align: center;
+    margin: auto 0;
+    background-color: white;
+  }
+
+  .info{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: white;
+    z-index: 100;
+
+    span {
+      text-align: center;
+      width: 50%;
+    }
+  }
+
+  .edit{
+    position: absolute;
+    bottom: 0px;
+    z-index: 0;
+    transition: bottom ease-in-out 0.25s;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #efedfb;
+    height: 50px;
+    
+    button {
+      width: 100px;
+      height: 30px;
+      cursor: pointer;
+      background: #5372F0;
+      font-size: 1.18rem;
+      color: white;
+      border-radius: 30px;
+    }
+  }
+
+  &:hover {
+    scale: 1.05;
+    box-shadow: 0px 0px 50px 0px #465798;
+
+    .edit{
+      bottom: -51px;
+    }
+  }
+}

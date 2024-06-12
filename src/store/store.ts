@@ -1,12 +1,14 @@
 'use client';
 import { Navigation_Reducer } from "@/store/reducers/navigations";
 import { Category_Reducer } from "@/store/reducers/categories";
+import { Foods_Reducer } from "@/store/reducers/foods";
 import { combineReducers, } from 'redux';
 import { configureStore } from "@reduxjs/toolkit";
 
 const allReducers = combineReducers({
     Navigation: Navigation_Reducer,
-    Category: Category_Reducer
+    Category: Category_Reducer,
+    Foods: Foods_Reducer
 })
 
 const store = configureStore({

@@ -9,13 +9,16 @@ import { menusCategories } from "@/staticData";
 import firebaseConfig from "@/utils/firebase";
 import { useEffect, useRef, useState } from "react";
 import { child, DataSnapshot, get, ref } from "firebase/database";
-import { useAppSelector } from "@/store/hooks/hooks";
+import { useAppDispatch, useAppSelector } from "@/store/hooks/hooks";
 import Card from "@/components/cards";
 import Loading from "./loading";
+import * as FoodsActions from "@/store/actions/foods";
 
 export default function Home() {
-  const { category: currentCategory} = useAppSelector((state) =>state.Category) 
-  const [menuData, setMenuData] = useState<{ [key: string]: Array<{ [key: string]: any}> }>({});
+  const { category: currentCategory, } = useAppSelector((state) =>state.Category) 
+  const { Foods: menuData, } = useAppSelector((state) =>state.Foods) 
+  // const [menuData, setMenuData] = useState<{ [key: string]: Array<{ [key: string]: any}> }>({});
+  const dispatch = useAppDispatch();
   const [height, setHeight] = useState(0)
   const sliderRef = useRef<HTMLDivElement>(null);
   const optionsRef = useRef<HTMLDivElement>(null);
@@ -24,7 +27,13 @@ export default function Home() {
   useEffect(()=>{
     get(child(ref(firebaseConfig()), "Foods/")).then(snapshot => {
       if(snapshot.exists()) {
-        setMenuData(snapshot.val());
+        // setMenuData(snapshot.val());
+        dispatch({
+          type: FoodsActions.SET_FOOD,
+          payload: {
+            Foods: snapshot.val(),
+          },
+        });
       }
     })
 
