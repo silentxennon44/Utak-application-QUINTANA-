@@ -1,24 +1,18 @@
-import * as NagivationActions from "@/store/actions/navigation";
+import * as NavigationActions from "@/store/actions/navigation";
 
 export interface NavigationState {
   location: string;
-  isNoLoc: boolean;
-  isLoading: boolean;
 }
 
 export const initialNavigation: NavigationState = {
-  location: "home",
-  isNoLoc: false,
-  isLoading: true,
+  location: "Overview",
 };
 
 export const Navigation_Reducer = (state = initialNavigation, action: any) => {
   switch (action.type) {
-    case NagivationActions.SET_LOCATION:
+    case NavigationActions.SET_NAVIGATION:
       return Object.assign({}, state, action.payload);
-    case NagivationActions.SET_IS_NO_LOC:
-      return Object.assign({}, state, action.payload);
-    case NagivationActions.SET_IS_PAGE_LOADING:
+    case NavigationActions.SET_IS_NO_LOC:
       return Object.assign({}, state, action.payload);
     default:
       return state;

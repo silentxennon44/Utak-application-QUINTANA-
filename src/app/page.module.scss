@@ -1,7 +1,43 @@
 @import '@/styles/mixins.scss';
 
+.loader{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+} 
+
 
 .main{
   @include flexRowBetween;
   height: 100%;
+  background-color: rgb(124, 124, 124);
+
+  .mainWindow{
+    width: 100%;
+    @include flexColumnBetween;
+    gap: 25px;
+
+    .content, .options {
+      padding: 35px;
+      position: relative;
+      overflow-x: hidden;
+      max-width: 1000px;
+      background: #fff;
+      border-radius: 13px;
+      width: 100%;
+    }
+
+    .content {
+      flex: 1 1 auto; // Allows .content to grow and take all available space
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .options {
+        flex: 0 0 auto; // Prevents .options from growing and keeps it at its natural size
+    }
+  }
 }

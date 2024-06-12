@@ -1,6 +1,7 @@
 import styles from "./card.module.scss"
 
-function Card() {
+function Card({params}) {
+  console.log(params)
   return (
     <div>Card</div>
   )
