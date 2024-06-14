@@ -1,7 +1,6 @@
-import axios from "axios";
-import toast from "react-hot-toast";
 import { initializeApp } from "firebase/app";
 import { getDatabase,ref, set } from "firebase/database";
+import { getStorage } from "firebase/storage";
 
 
 const initDb =  () => {
@@ -17,8 +16,12 @@ const initDb =  () => {
   };
     
   // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-
-  return getDatabase(app);
+  return initializeApp(firebaseConfig);
 }
-export default initDb
+
+const database = getDatabase(initDb())
+const storage = getStorage(initDb());
+
+export {
+  database, storage,
+}

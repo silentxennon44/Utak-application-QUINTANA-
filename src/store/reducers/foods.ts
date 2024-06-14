@@ -1,7 +1,20 @@
 import * as Foods from "@/store/actions/foods";
 
+export interface FoodItem{
+  amountInStock: number;
+  cost: number;
+  image: string;
+  name: string;
+  options?: string[];
+  price: number;
+  ingredients: string[];
+  fileName: string
+}
+
 export interface Food {
-  Foods: { [key: string]: Array<{ [key: string]: any}> };
+  Foods: {
+    [key: string]: FoodItem[]
+  };
 }
 
 export const initialFoods: Food = {

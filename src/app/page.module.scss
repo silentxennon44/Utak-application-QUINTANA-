@@ -45,6 +45,23 @@
         border-top-right-radius: 13px;
         border-bottom-right-radius: 13px;
       }
+
+      .add{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 250px;
+        outline: 1px solid black;
+        font-size: 150px;
+        cursor: pointer;
+        transition: color ease-in-out 250ms, background ease-in-out 250ms; 
+
+        &:hover{
+          background: #5372F0;
+          color: white;
+        }
+      }
     }
 
     .options {
